@@ -4,12 +4,8 @@ public class Conta {
     private double saldo;
     private Cliente cliente;
 
-    public Conta(int numero){
-        this.numero = numero;
-        saldo = 0;
-    }
     //Construtor
-    public Conta(Cliente cliente, int numero){
+    public Conta(int numero, Cliente cliente){
         this.numero = numero;
         this.cliente = cliente;
         saldo = 0;
@@ -17,7 +13,7 @@ public class Conta {
 
     //Métodos da classe
     public String visualizarSaldo(){
-        return String.format("R$ %.2f", saldo);
+        return String.format("R$%.2f", saldo);
     }
     public boolean depositar(double valor){
         if(valor < 0) 
@@ -38,6 +34,8 @@ public class Conta {
     }
 
     public String toString(){
-        return "Conta Numero:" + numero + "\nSaldo:" + visualizarSaldo() + "\n Cliente:" + cliente.getNome();
+        return "Numero:"+numero 
+        + "\nCliente:" + cliente.getNome()
+        + "\nSaldo:" + visualizarSaldo();
     }
 }

@@ -1,30 +1,29 @@
 import java.time.LocalDate;
 
+import java.time.Period;
+
 public class Sistema {
     public void run(){
-        Cliente cliente = new Cliente("Felipe", "654321","Felipe@bol.com");
-        Conta conta = new Conta(cliente, 1234);
-        
+        Cliente cliente = new Cliente("Endevour", "456789", "putzsousegundo@gmail.com");
+        Conta conta = new Conta(9865,
+        cliente);
         System.out.println(conta);
 
-        Titulo steam = new Titulo(200, LocalDate.of(2022,03,30), 5);
-        
-        conta.depositar(300);
-        
-    }
-    boolean pagarTitulo(Titulo titulo, Conta conta){
-        double valorPagar;
-        LocalDate dataTitulo = titulo.getData();
-        
-        LocalDate hoje = LocalDate.now();
-        if(dataTitulo.compareTo(hoje) > 0){
-            valorPagar = titulo.getValor();
-        }else{
+        Titulo titulo = new Titulo(686.97, LocalDate.of(2022, 03, 30), 5);
 
+    }
+
+    boolean pagarTitulo(Titulo titulo, Conta conta){
+        LocalDate prazo = titulo.getData();
+        LocalDate hoje = LocalDate.now();
+        double valor;
+        if(prazo.compareTo(hoje) <= 0){
+            valor = titulo.getValor();
+        } else {
+            int diasAtraso = Period.between(prazo, hoje).getDays();
+            valor = titulo.getValor() + titulo.getValor()*titulo.getMultaDiaria()/100* diasAtraso;
         }
-        
+        //TODO Continuar aqui
         return true;
     }
-
-
 }
