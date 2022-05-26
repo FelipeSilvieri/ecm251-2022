@@ -1,0 +1,3 @@
+public enum EnumCategoriaBebida {
+    SUCP,ALCOOL,AGUA,REFRIGERANTE,CHA,CAFE,LEITE,ENERGETICO;
+}
