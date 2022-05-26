@@ -6,7 +6,16 @@ public class App {
 
         System.out.println("Preços Regulares: ");
         System.out.println(cornDog.getNome()+ ":R$" + cornDog.getPreco());
-        System.out.println(acaiMoleza.getNome()+":R$" + acaiMoleza.getPreco());
+        System.out.println(acaiMoleza.getNome()+":R$" +acaiMoleza.getPreco());
 
+        System.out.println("Preços c/ Desconto: ");
+        System.out.println(cornDog.getNome()+ ":R$" + precoComDesconto(cornDog));
+        System.out.println(acaiMoleza.getNome()+":R$" +precoComDesconto(acaiMoleza));
+
+        
     }
-}
+    public static String precoComDesconto(IGerarDesconto produto) {
+        return "R$:" + produto.gerarDesconto();
+        
+    }
+}    
