@@ -5,7 +5,7 @@ public class App {
         Produto acaiMoleza = new Bebida(10, "Açai do Molezolas", 7, "Açai top maravilhoso", EnumCategoriaBebida.SUCO, EnumTemperatura.FRIO);
 
         System.out.println("Preços Regulares: ");
-        System.out.println(cornDog.getnome()+ ":R$" + cornDog.getPreco());
+        System.out.println(cornDog.getNome()+ ":R$" + cornDog.getPreco());
         System.out.println(acaiMoleza.getNome()+":R$" + acaiMoleza.getPreco());
 
     }
