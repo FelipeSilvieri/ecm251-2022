@@ -13,6 +13,7 @@ public class Comida extends Produto{
 
     @Override
     public double gerarDesconto() {
+        // 5% de desconto        
         return getPreco()*0.95;
     }
 
