@@ -11,4 +11,9 @@ public class Comida extends Produto{
         this.pimenta = pimenta;
     }
 
+    @Override
+    public double gerarDesconto() {
+        return getPreco()*0.95;
+    }
+
 }

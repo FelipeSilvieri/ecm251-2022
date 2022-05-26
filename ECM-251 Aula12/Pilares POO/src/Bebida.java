@@ -10,4 +10,9 @@ public class Bebida extends Produto{
         this.temperatura = temperatura;
     }
 
+    @Override
+    public double gerarDesconto() {
+        return getPreco()*0.9;
+    }
+
 }
