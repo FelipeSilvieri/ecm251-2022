@@ -1,4 +1,4 @@
-public abstract class Produtos {
+public abstract class Produtos implements IPrecoFinal{
 
     private final String cor;
     private final double preco;
