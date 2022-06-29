@@ -2,6 +2,7 @@ public class MobileMembers extends Integrantes{
 
     public MobileMembers(String nome, String email, String turno) {
         super(nome, email, turno);
+        this.funcao = "Mobile Member";
     }
 
     @Override
