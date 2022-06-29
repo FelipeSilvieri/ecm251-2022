@@ -22,12 +22,10 @@ public class SistemaPrincipal {
 
         trocaTurno(integrantes, "regular");
 
-        integrantes.remove(1); //removendo Roberta
-        integrantes.remove(3); //removendo Kleber
+        integrantes.remove(1); 
+        integrantes.remove(3); 
 
         exibeCadastrados(integrantes);
-
-        System.out.println(integrantes.get(1).toString());
 
     }
     public static void exibeMensagem(ArrayList<Integrantes> integrantes){
