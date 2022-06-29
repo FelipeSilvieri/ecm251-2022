@@ -1,4 +1,4 @@
 public interface Interface {
     void PostarMensagem();
-    boolean MudarTurdno(String turno);
+    boolean MudarTurno(String turnoDepois);
 }
