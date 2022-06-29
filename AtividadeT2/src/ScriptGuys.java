@@ -7,11 +7,11 @@ public class ScriptGuys extends Integrantes{
 
     @Override
     public boolean PostarMensagem() {
-        if(funcao.equals("regular")){
+        if(turno.equals("regular")){
             System.out.println("Prazer em ajudar novos amigos de código!");
             return true;
         }
-        else if(funcao.equals("extra")){
+        else if(turno.equals("extra")){
             System.out.println("QU3Ro_S3us_r3curs0s.py");
             return true;
         }

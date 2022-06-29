@@ -7,11 +7,11 @@ public class MobileMembers extends Integrantes{
 
     @Override
     public boolean PostarMensagem() {
-        if(funcao.equals("regular")){
+        if(turno.equals("regular")){
             System.out.println("Happy Coding!");
             return true;
         }
-        else if(funcao.equals("extra")){
+        else if(turno.equals("extra")){
             System.out.println("Happy_C0d1ng. Maskers");
             return true;
         }
