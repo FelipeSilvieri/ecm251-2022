@@ -7,8 +7,19 @@ public class BigBrothers extends Integrantes{
 
     @Override
     public boolean PostarMensagem() {
+        if(turno.equals("regular")){
+            System.out.println("Sempre ajudando as pessoas membros ou não S2!");
+            return true;
+        }
+        else if(turno.equals("extra")){
+            System.out.println("... ");
+            return true;
+        }
+        else{
+            return false;
+        }
         // TODO Auto-generated method stub
-        return false;
+        
     }
     
 }
