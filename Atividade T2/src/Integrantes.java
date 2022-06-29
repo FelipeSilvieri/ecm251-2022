@@ -24,18 +24,18 @@ public abstract class Integrantes implements Interface{
         return turno;
     }
 
-    @Override
-    public void MudarTurno(String turnoNovo) {
-        turno = turnoNovo;
-    }
-
     public String getFuncao() {
         return funcao;
+    }
+  
+    @Override
+    public void MudarTurno(String turnoDepois) {
+        turno = turnoDepois;
     }
 
     @Override
     public String toString() {
-        return "Integrantes [email: " + email + ", funcao: " + funcao + ", nome: " + nome + ", turno: " + turno + "]";
+        return "Integrantes [email=" + email + ", funcao=" + funcao + ", nome=" + nome + ", turno=" + turno + "]";
     }
 
 }
