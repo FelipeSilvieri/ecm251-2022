@@ -1,5 +1,5 @@
-public class Interface {
+public interface Interface {
     boolean postagens();
-    void TrocardeTurno(String turno);
+    void MudarTurno(String turno);
     
 }
