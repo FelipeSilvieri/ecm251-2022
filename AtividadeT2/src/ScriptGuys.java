@@ -7,8 +7,18 @@ public class ScriptGuys extends Integrantes{
 
     @Override
     public boolean PostarMensagem() {
+        if(funcao.equals("regular")){
+            System.out.println("Prazer em ajudar novos amigos de código!");
+            return true;
+        }
+        else if(funcao.equals("extra")){
+            System.out.println("QU3Ro_S3us_r3curs0s.py");
+            return true;
+        }
+        else{
+            return false;
+        }
         // TODO Auto-generated method stub
-        return false;
     }
     
 }
