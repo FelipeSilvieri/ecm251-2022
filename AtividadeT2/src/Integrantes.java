@@ -39,5 +39,6 @@ public abstract class Integrantes implements Interface{
         return "Integrantes [email=" + email + ", funcao=" + funcao + ", nome=" + nome + ", turno=" + turno + "]";
     }
 
+
 }    
 

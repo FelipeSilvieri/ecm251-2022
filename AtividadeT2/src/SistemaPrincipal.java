@@ -27,6 +27,8 @@ public class SistemaPrincipal {
 
         exibeCadastrados(integrantes);
 
+        System.out.println(integrantes.get(1).toString());
+
     }
     public static void exibeMensagem(ArrayList<Integrantes> integrantes){
         for(Integrantes endereco:integrantes){
@@ -37,9 +39,11 @@ public class SistemaPrincipal {
     }
 
     public static void exibeCadastrados(ArrayList<Integrantes> integrantes){
-        for(Integrantes endereco:integrantes){
-            System.out.println(endereco.toString());
-        }
+        System.out.println(integrantes.get(0).toString()); //sem o for por fins de teste
+        System.out.println(integrantes.get(1).toString());
+        System.out.println(integrantes.get(2).toString());
+        System.out.println(integrantes.get(3).toString());
+
     }
 
     public static void trocaTurno(ArrayList<Integrantes> integrantes, String turnoMudanca){
