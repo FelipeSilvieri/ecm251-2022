@@ -1,42 +1,24 @@
 ## Nome: Felipe Matos Silvieri
 ## RA: 20.00314-5
+import string
 import streamlit as st
+from models.user import User
 
 class usercontroller():
-    import streamlit as st
+    
+    def __init__(self) -> None:
+        self.users = [
+            (User("Felipe Silvieri","felipesilvieri@bol.com","felipe123")),
+            (User("Murilove","murilovedoslove@bol.com","murilo321")),
+            (User("Ademilson Freitas","adreitas@gmail.com","ademilsolas123"))
+            ]
 
-    def check_password():
-        """Returns `True` if the user had the correct password."""
-
-        def password_entered():
-            """Checks whether a password entered by the user is correct."""
-            if st.session_state["password"] == st.secrets["password"]:
-                st.session_state["password_correct"] = True
-                del st.session_state["password"]  # don't store password
-            else:
-                st.session_state["password_correct"] = False
-
-        if "password_correct" not in st.session_state:
-            # First run, show input for password.
-            st.text_input(
-                "Password", type="password", on_change=password_entered, key="password"
-            )
-            return False
-        elif not st.session_state["password_correct"]:
-            # Password not correct, show input + error.
-            st.text_input(
-                "Password", type="password", on_change=password_entered, key="password"
-            )
-            st.error("😕 Password incorrect")
-            return False
-        else:
-            # Password correct.
-            return True
-
-    if check_password():
-        st.write("Here goes your normal Streamlit app...")
-        st.button("Click me")
-        
-        
-        
-    pass
+    def checkUser(self,usuario):
+        return usuario in self.users
+    
+    def checkLogin(self,nometeste,senhateste):
+        user_teste = User(nome=nometeste,email=None,senha=senhateste)
+        for usuario in self.users:
+            if usuario.nome  == user_teste.nome and usuario.senha == user_teste.senha:
+                return True
+        return False
