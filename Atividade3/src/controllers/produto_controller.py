@@ -13,3 +13,7 @@ class produtocontroller():
         for produto in self.produtos:
             if nome == produto.titulo:
                 return f'{produto.titulo}\nValor:{produto.valor}\n{produto.descricao}'
+    def get_so_nome(self,nome):
+        for produto in self.produtos:
+            if nome == produto.titulo:
+                return f'Produto: {produto.titulo}'       
