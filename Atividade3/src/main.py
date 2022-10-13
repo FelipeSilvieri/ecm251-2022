@@ -58,13 +58,13 @@ if usercontroller().checkLogin(nome1,nome2) == True and botao_apertado == True:
         st.markdown("<h1 style='text-align: center; color: grey;'>Bem Vindo ao seu Carrinho!</h1>", unsafe_allow_html=True)
         
         if carrinho1 == True:
-            st.write(pc().get_nome("Notebook Acer Predator Helios-300"))
+            st.write(pc().get_so_nome("Notebook Acer Predator Helios-300"))
         if carrinho2 == True:
-            st.write(pc().get_nome("Notebook Lenovo Legion 5"))    
+            st.write(pc().get_so_nome("Notebook Lenovo Legion 5"))    
         if carrinho3 == True:
-            st.write(pc().get_nome("Notebook Dell G15"))
+            st.write(pc().get_so_nome("Notebook Dell G15"))
         if carrinho4 == True:
-            st.write(pc().get_nome("Notebook Acer Predator Helios-500"))    
+            st.write(pc().get_so_nome("Notebook Acer Predator Helios-500"))    
     
 else:    
     st.markdown("<h1 style='text-align: center; color: grey;'>ÁREA DE LOGIN</h1>", unsafe_allow_html=True)
