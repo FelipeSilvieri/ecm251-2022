@@ -3,7 +3,7 @@
 
 from ftplib import parse227
 from models.Produtos import Produto
-from pages.home import Home
+##from pages.home import Home
 
 class carrinhocontroller():
     

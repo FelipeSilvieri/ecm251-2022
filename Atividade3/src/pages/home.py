@@ -8,6 +8,7 @@ from PIL import Image
 import streamlit as st
 from models.Produtos import Produto
 from controllers.carrinho_controller import carrinhocontroller as cc
+from pages.Carrinho import Carrinho
 
 class Home:
     
@@ -24,38 +25,63 @@ class Home:
        
     ## Exibição dos Produtos ##
     
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2 = st.columns(2)
 
     with col1:
         st.image("assets/helios300.jpg")
     with col2:
         st.image("assets/helios300.jpg")
-    with col3:
-        st.image("assets/helios300.jpg")
-    with col4:
-        st.image("assets/helios300.jpg")
-        
     with col1:
         st.text(produto1)
     with col2:
         st.text(produto2)
-    with col3:
-        st.text(produto3)
-    with col4:
-        st.text(produto4)
         
     with col1:
-        st.button("Carrinho","adicionar")
+        if st.button("Carrinho","adicionar1"):
+            qtd1 = Carrinho.Carrinho1.pr1 + 1
+            
+    with col2:
+        if st.button("Carrinho","adicionar2"):
+            qtd2 = Carrinho.Carrinho1.pr2 + 1
+            
+    with col1:
+        st.text(Carrinho.Carrinho1.pr1)
+    with col2:
+        st.text(Carrinho.Carrinho1.pr2)
+    
+    qtd1 = int
+        
+    with col1:
+        if st.button("Carrinho","adicionar1"):
+            qtd1 = Carrinho.Carrinho1.pr1 + 1
 
     with col2:
-        st.button("Carrinho","adicionar2")
+        if st.button("Carrinho","adicionar2"):
+            Carrinho.Carrinho1.pr2 += 1
     
-    with col3:
-        st.button("Carrinho","adicionar3")
+    with col1:
+        st.text(Carrinho.Carrinho1.pr3) 
     
-    with col4:
-        st.button("Carrinho","adicionar4")
+    with col2:
+        st.text(Carrinho.Carrinho1.pr4) 
         
+    ## Mostrando quantidades ##
+    
+    with col1:
+        st.text(Carrinho.Carrinho1.pr1) 
+
+    with col2:
+        st.text(Carrinho.Carrinho1.pr2) 
+    
+    with col1:
+        if st.button("Carrinho","adicionar3"):
+            Carrinho.Carrinho1.pr3 += 1
+   
+    with col2:
+        if st.button("Carrinho","adicionar4"):
+            Carrinho.Carrinho1.pr4 += 1
+    
+    pass      
         
     
             

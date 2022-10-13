@@ -1,11 +1,14 @@
 ## Nome: Felipe Matos Silvieri
 ## RA: 20.00314-5
 
+from re import X
 import streamlit as st
 from pages.home import Home
 from controllers.carrinho_controller import carrinhocontroller as cc
 
 class Carrinho:
+    
+    qtd = Home.qtd1
     
     Carrinho1 = cc(1,4,3,6)
     
@@ -35,5 +38,4 @@ class Carrinho:
     st.markdown("<h4 style='text-align: center; color: white;'></h4>", unsafe_allow_html=True)
     st.metric(label="Total (em R$): ", value = valorCarrinho)
     st.button("Finalizar Compra") 
-    
     
