@@ -11,7 +11,7 @@ with st.sidebar:
     nome2 = st.text_input("Senha",type="password")
     
     usercontroller().checkLogin(nome1,nome2)
-    botao_apertado = st.button("login")
+    botao_apertado = st.checkbox("login")
 
 if usercontroller().checkLogin(nome1,nome2) == True and botao_apertado == True:
     
