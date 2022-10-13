@@ -37,6 +37,7 @@ if uc().checkLogin(nome1,nome2) == True and botao_apertado == True:
             st.image(image="assets/helios300.jpg",width=300)
             st.text(pc().get_nome("Notebook Acer Predator Helios-300"))
             carrinho1 = st.checkbox(label="Adicionar ao carrinho",key=1)
+            
             ## Exibe Valor
             st.metric(label="Preço:",value=(pc().get_valor_numero("Notebook Acer Predator Helios-300")),delta=pc().get_valor_desconto("Notebook Acer Predator Helios-300"))
         
@@ -45,6 +46,7 @@ if uc().checkLogin(nome1,nome2) == True and botao_apertado == True:
             st.image(image="assets/legion5.jpg",width=300)
             st.text(pc().get_nome("Notebook Lenovo Legion 5"))
             carrinho2 = st.checkbox(label="Adicionar ao carrinho",key=2)
+            
             ## Exibe Valor    
             st.metric(label="Preço:",value=(pc().get_valor_numero("Notebook Lenovo Legion 5")),delta=pc().get_valor_desconto("Notebook Lenovo Legion 5"))
             
@@ -55,6 +57,7 @@ if uc().checkLogin(nome1,nome2) == True and botao_apertado == True:
             st.image(image="assets/g15.jpg",width=300)
             st.text(pc().get_nome("Notebook Dell G15"))
             carrinho3 = st.checkbox(label="Adicionar ao carrinho",key=3)
+            
             ## Exibe Valor    
             st.metric(label="Preço:",value=(pc().get_valor_numero("Notebook Dell G15")),delta=pc().get_valor_desconto("Notebook Dell G15"))
         
@@ -63,6 +66,7 @@ if uc().checkLogin(nome1,nome2) == True and botao_apertado == True:
             st.image(image="assets/helios500.jpg",width=300)
             st.text(pc().get_nome("Notebook Acer Predator Helios-500"))
             carrinho4 = st.checkbox(label="Adicionar ao carrinho",key=4)
+            
             ## Exibe Valor    
             st.metric(label="Preço:",value=(pc().get_valor_numero("Notebook Acer Predator Helios-500")),delta=pc().get_valor_desconto("Notebook Acer Predator Helios-500"))
     
@@ -80,17 +84,21 @@ if uc().checkLogin(nome1,nome2) == True and botao_apertado == True:
             if carrinho1 == True:
                 qtd1 = st.slider("Escolha a quantidade desejada",min_value=1,max_value=5,key=5)
                 st.write(qtd1,(pc().get_so_nome("Notebook Acer Predator Helios-300")))
+                
                 valortotal += (pc().get_valor_numero("Notebook Acer Predator Helios-300"))*qtd1
+                
             if carrinho2 == True:
                 qtd2 = st.slider("Escolha a quantidade desejada",min_value=1,max_value=5,key=6)
                 st.write(qtd2,(pc().get_so_nome("Notebook Lenovo Legion 5")))    
                 
                 valortotal += (pc().get_valor_numero("Notebook Lenovo Legion 5"))*qtd2
+                
             if carrinho3 == True:
                 qtd3 = st.slider("Escolha a quantidade desejada",min_value=1,max_value=5,key=7)
                 st.write(qtd3,(pc().get_so_nome("Notebook Dell G15")))
                 
                 valortotal += (pc().get_valor_numero("Notebook Dell G15"))*qtd3
+                
             if carrinho4 == True:
                 qtd4 = st.slider("Escolha a quantidade desejada",min_value=1,max_value=5,key=8)
                 st.write(qtd4,(pc().get_so_nome("Notebook Acer Predator Helios-500")))
