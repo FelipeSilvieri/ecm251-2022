@@ -68,7 +68,7 @@ if usercontroller().checkLogin(nome1,nome2) == True and botao_apertado == True:
     
 else:    
     st.markdown("<h1 style='text-align: center; color: grey;'>ÁREA DE LOGIN</h1>", unsafe_allow_html=True)
-    st.markdown("<h1 style='text-align: center; color: grey;'>Digite na seção ao lado(esquerdo) as suas credenciais...</h1>")
+    st.markdown("<h1 style='text-align: center; color: grey;'>Digite na seção ao lado(esquerdo) as suas credenciais...</h1>", unsafe_allow_html=True)
     
     
     
