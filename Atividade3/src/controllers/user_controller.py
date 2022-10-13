@@ -22,3 +22,4 @@ class usercontroller():
             if usuario.nome  == user_teste.nome and usuario.senha == user_teste.senha:
                 return True
         return False
+     

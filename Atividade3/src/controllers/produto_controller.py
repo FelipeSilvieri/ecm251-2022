@@ -18,11 +18,11 @@ class produtocontroller():
     def get_so_nome(self,nome):
         for produto in self.produtos:
             if nome == produto.titulo:
-                return f'Produto: {produto.titulo}'
+                return produto.titulo
     def get_so_valor(self,nome):
         for produto in self.produtos:
             if nome == produto.titulo:
-                return f'valor -> R$:{produto.valor}' 
+                return f'Valor --> R$:{produto.valor}' 
             
     def get_valor_numero(self,nome):
         for produto in self.produtos:

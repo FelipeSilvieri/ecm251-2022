@@ -2,18 +2,21 @@
 ## RA: 20.00314-5
 from distutils.log import info
 import streamlit as st
-from controllers.user_controller import usercontroller
+from controllers.user_controller import usercontroller as uc
 from controllers.produto_controller import produtocontroller as pc
 
 with st.sidebar:
     
+    ## Inserção de credenciais ##
     nome1 = st.text_input("Nome de Usuario")
     nome2 = st.text_input("Senha",type="password")
     
-    usercontroller().checkLogin(nome1,nome2)
+    ## Checando o login ##
+    uc().checkLogin(nome1,nome2)
     botao_apertado = st.checkbox("login")
 
-if usercontroller().checkLogin(nome1,nome2) == True and botao_apertado == True:
+if uc().checkLogin(nome1,nome2) == True and botao_apertado == True:
+    
     with st.sidebar:
         st.success("Login Efetuado com Sucesso!")
     produtos, carrinho = st.tabs(["Produtos","Carrinho"])
@@ -55,7 +58,9 @@ if usercontroller().checkLogin(nome1,nome2) == True and botao_apertado == True:
             carrinho4 = st.checkbox(label="Adicionar ao carrinho",key=4)
     
     with carrinho:
-    
+        
+        ## Modelagem do Carrinho ##
+        
         st.markdown("<h1 style='text-align: center; color: grey;'>Bem Vindo ao seu Carrinho!</h1>", unsafe_allow_html=True)
         
         valortotal = 0
@@ -67,7 +72,7 @@ if usercontroller().checkLogin(nome1,nome2) == True and botao_apertado == True:
         if carrinho2 == True:
             st.write(1,(pc().get_so_nome("Notebook Lenovo Legion 5")))    
             st.write(pc().get_so_valor("Notebook Lenovo Legion 5"))
-            valortotal += pc().get_valor_numeror("Notebook Lenovo Legion 5")
+            valortotal += pc().get_valor_numero("Notebook Lenovo Legion 5")
         if carrinho3 == True:
             st.write(1,(pc().get_so_nome("Notebook Dell G15")))
             st.write(pc().get_so_valor("Notebook Dell G15"))
@@ -77,15 +82,19 @@ if usercontroller().checkLogin(nome1,nome2) == True and botao_apertado == True:
             st.write(pc().get_so_valor("Notebook Acer Predator Helios-500")) 
             valortotal += pc().get_valor_numero("Notebook Acer Predator Helios-500")
         
-        st.metric("Valor total:",round((valortotal),2))
+        ## Exibição do valor total ##
+        st.metric("Valor total (em R$):",round((valortotal),2))
+        
+        ## Botão de Finalizar a Compra ##
         st.button("Finalizar Compra")
     
-else:    
+elif uc().checkLogin(nome1,nome2) == False and botao_apertado == True:    
+    ## Login inserido incorreto ##
     st.markdown("<h1 style='text-align: center; color: grey;'>ÁREA DE LOGIN</h1>", unsafe_allow_html=True)
     st.markdown("<h1 style='text-align: center; color: grey;'>Digite na seção ao lado(esquerdo) as suas credenciais...</h1>", unsafe_allow_html=True)
-    
-    
-    
-
-
-
+    with st.sidebar:
+        st.error("Credenciais Incorretas!")
+else:    
+    ## Enquanto login não efetuado ##
+    st.markdown("<h1 style='text-align: center; color: grey;'>ÁREA DE LOGIN</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: grey;'>Digite na seção ao lado(esquerdo) as suas credenciais...</h1>", unsafe_allow_html=True)
