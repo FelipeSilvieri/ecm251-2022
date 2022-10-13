@@ -9,11 +9,22 @@ class produtocontroller():
             (Produto("Notebook Dell G15",15000.99,"Uma supermaquina")),
             (Produto("Notebook Acer Predator Helios-500",11999.00,"Mais potente para as suas exigencias"))
             ]
+    
     def get_nome(self,nome):
         for produto in self.produtos:
             if nome == produto.titulo:
                 return f'{produto.titulo}\nValor:{produto.valor}\n{produto.descricao}'
+    
     def get_so_nome(self,nome):
         for produto in self.produtos:
             if nome == produto.titulo:
-                return f'Produto: {produto.titulo}'       
+                return f'Produto: {produto.titulo}'
+    def get_so_valor(self,nome):
+        for produto in self.produtos:
+            if nome == produto.titulo:
+                return f'valor -> R$:{produto.valor}' 
+            
+    def get_valor_numero(self,nome):
+        for produto in self.produtos:
+            if nome == produto.titulo:
+                return produto.valor 

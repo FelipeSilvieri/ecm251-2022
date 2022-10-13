@@ -14,7 +14,8 @@ with st.sidebar:
     botao_apertado = st.checkbox("login")
 
 if usercontroller().checkLogin(nome1,nome2) == True and botao_apertado == True:
-    
+    with st.sidebar:
+        st.success("Login Efetuado com Sucesso!")
     produtos, carrinho = st.tabs(["Produtos","Carrinho"])
     with produtos:
         
@@ -57,14 +58,27 @@ if usercontroller().checkLogin(nome1,nome2) == True and botao_apertado == True:
     
         st.markdown("<h1 style='text-align: center; color: grey;'>Bem Vindo ao seu Carrinho!</h1>", unsafe_allow_html=True)
         
+        valortotal = 0
+        
         if carrinho1 == True:
-            st.write(pc().get_so_nome("Notebook Acer Predator Helios-300"))
+            st.write(1,(pc().get_so_nome("Notebook Acer Predator Helios-300")))
+            st.write(pc().get_so_valor("Notebook Acer Predator Helios-300"))
+            valortotal += pc().get_valor_numero("Notebook Acer Predator Helios-300")
         if carrinho2 == True:
-            st.write(pc().get_so_nome("Notebook Lenovo Legion 5"))    
+            st.write(1,(pc().get_so_nome("Notebook Lenovo Legion 5")))    
+            st.write(pc().get_so_valor("Notebook Lenovo Legion 5"))
+            valortotal += pc().get_valor_numeror("Notebook Lenovo Legion 5")
         if carrinho3 == True:
-            st.write(pc().get_so_nome("Notebook Dell G15"))
+            st.write(1,(pc().get_so_nome("Notebook Dell G15")))
+            st.write(pc().get_so_valor("Notebook Dell G15"))
+            valortotal += pc().get_valor_numero("Notebook Dell G15")
         if carrinho4 == True:
-            st.write(pc().get_so_nome("Notebook Acer Predator Helios-500"))    
+            st.write(1,(pc().get_so_nome("Notebook Acer Predator Helios-500")))
+            st.write(pc().get_so_valor("Notebook Acer Predator Helios-500")) 
+            valortotal += pc().get_valor_numero("Notebook Acer Predator Helios-500")
+        
+        st.metric("Valor total:",round((valortotal),2))
+        st.button("Finalizar Compra")
     
 else:    
     st.markdown("<h1 style='text-align: center; color: grey;'>ÁREA DE LOGIN</h1>", unsafe_allow_html=True)
