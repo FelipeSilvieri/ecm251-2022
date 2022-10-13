@@ -69,27 +69,33 @@ if uc().checkLogin(nome1,nome2) == True and botao_apertado == True:
         
         with produtos_carrinho:
             if carrinho1 == True:
-                qtd1 = st.slider("Escolha a quantidade desejada",min_value=1,max_value=10,key=5)
+                qtd1 = st.slider("Escolha a quantidade desejada",min_value=1,max_value=5,key=5)
                 st.write(qtd1,(pc().get_so_nome("Notebook Acer Predator Helios-300")))
                 st.write(pc().get_so_valor("Notebook Acer Predator Helios-300"))
                 valortotal += (pc().get_valor_numero("Notebook Acer Predator Helios-300"))*qtd1
             if carrinho2 == True:
-                qtd2 = st.slider("Escolha a quantidade desejada",min_value=1,max_value=10,key=6)
+                qtd2 = st.slider("Escolha a quantidade desejada",min_value=1,max_value=5,key=6)
                 st.write(qtd2,(pc().get_so_nome("Notebook Lenovo Legion 5")))    
                 st.write(pc().get_so_valor("Notebook Lenovo Legion 5"))
                 valortotal += (pc().get_valor_numero("Notebook Lenovo Legion 5"))*qtd2
             if carrinho3 == True:
-                qtd3 = st.slider("Escolha a quantidade desejada",min_value=1,max_value=10,key=7)
+                qtd3 = st.slider("Escolha a quantidade desejada",min_value=1,max_value=5,key=7)
                 st.write(qtd3,(pc().get_so_nome("Notebook Dell G15")))
                 st.write(pc().get_so_valor("Notebook Dell G15"))
                 valortotal += (pc().get_valor_numero("Notebook Dell G15"))*qtd3
             if carrinho4 == True:
-                qtd4 = st.slider("Escolha a quantidade desejada",min_value=1,max_value=10,key=8)
+                qtd4 = st.slider("Escolha a quantidade desejada",min_value=1,max_value=5,key=8)
                 st.write(qtd4,(pc().get_so_nome("Notebook Acer Predator Helios-500")))
                 st.write(pc().get_so_valor("Notebook Acer Predator Helios-500")) 
                 valortotal += (pc().get_valor_numero("Notebook Acer Predator Helios-500"))*qtd4
         
         with valor_carrinho:
+            ## Exibição Info ##
+            
+            if valortotal != 0:
+                st.info("Desmarque o checkbox (Página Produtos) para Remover produto do carrinho!")
+            else:
+                pass
             ## Exibição do valor total ##
             st.metric("Valor total (em R$):",round((valortotal),2))
             
