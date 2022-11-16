@@ -40,4 +40,9 @@ class CarrinhoController():
             return True
         except:
             return False
-
+        
+    def remove_cart(self,products):
+        for i in self.get_cart().get_products():
+            i[0].set_qtd(i[0].get_qtd() - 1)
+            ProductDAO.get_instance().update_product(i)
+        self.get_cart().set_products([])

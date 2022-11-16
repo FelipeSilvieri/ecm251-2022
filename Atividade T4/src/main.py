@@ -97,13 +97,20 @@ with st.sidebar:
             st.button(label= "Cadastrar", on_click= uc.sign_up, args = (uc(),name, email, password, cpf))
 
     if st.session_state["Login"] == "aprovado":
-
+        
+        col1, col2 = st.columns(2,gap="small")
+        
+        with col1:
+            st.title(f"{st.session_state['Usuario']}")
+            st.button(label= "Sair", on_click= uc.logout)
+        with col2:
+            st.image(caption=None,image="https://cdn-icons-png.flaticon.com/512/1361/1361728.png",width=90) 
+            
+        st.text("")  
+        st.text("")
+        st.text("")
         st.text("")
 
-        st.title(f"Bem vindo, {st.session_state['Usuario']}")
-        st.markdown("***")
-        st.button(label= "Sair", on_click= uc.logout)
-        st.markdown("***")
 
 if "Login" in st.session_state:
 
@@ -115,13 +122,9 @@ if "Login" in st.session_state:
             st.title("Suas Credenciais...")
 
             if st.session_state["Profile"] == "dados":
-                st.markdown("***")
                 st.markdown(f"Nome: {st.session_state['Usuario']}")
-                st.markdown("***")
                 st.markdown(f"Email: {st.session_state['Email']}")
-                st.markdown("***")
                 st.markdown(f"CPF: {st.session_state['Cpf']}")
-                st.markdown("***")
                 st.button("Alterar Credenciais de login", key = 123470, on_click = uc.change_login_data)
 
             if st.session_state["Profile"] == "change":
@@ -156,29 +159,29 @@ if "Login" in st.session_state:
                 with col1:
 
                     product = p_controller.get_product(index = i)
-                    st.markdown(f"## {product.get_name()}")
+                    st.markdown(f"{product.get_name()}")
                     try:
-                        st.image(f"{product.get_url()}")
+                        st.image(f"{product.get_url()}",width=200)
                     except:
                         st.error("Erro ao carregar produto...")
-                    st.markdown(f"## R${product.get_price()}")
-                    quantity1 = st.number_input(label = "", key = 100 * (i+1), format = "%i", step = 1,min_value = 1, max_value = product.get_qtd())
+                    st.markdown(f"R${product.get_price()}")
+                    quantity1 = st.number_input(label = "", key = 1176 * (i+1), format = "%i", step = 1,min_value = 1, max_value = product.get_qtd())
                     if product.get_qtd() > 0 and product.get_qtd() - quantity1 >= 0:
-                        st.button(label = f"Adicionar {product.get_name()}", key = 2200 * (i+12), on_click= st.session_state["Cart"].add_product, args = (product, quantity1))
+                        st.button(label = f"Adicionar {product.get_name()}", key = 2220 * (i+12), on_click= st.session_state["Cart"].add_product, args = (product, quantity1))
                     else:
                         st.markdown(f"## {product.get_name()} Sem Estoque!")
                 with col2:
 
                     product = p_controller.get_product(index = i + 1)
-                    st.markdown(f"## {product.get_name()}")
+                    st.markdown(f"{product.get_name()}")
                     try:
-                        st.image(f"{product.get_url()}")
+                        st.image(f"{product.get_url()}",width=250)
                     except:
                         st.error("Erro ao carregar produto...")
-                    st.markdown(f"## R${product.get_price()}")
-                    quantity2 = st.number_input(label = "",  format = "%i", key = 3020 * (i+83), step = 1,min_value = 1, max_value = product.get_qtd())
+                    st.markdown(f"R${product.get_price()}")
+                    quantity2 = st.number_input(label = "",  format = "%i", key = 9229 * (i+83), step = 1,min_value = 1, max_value = product.get_qtd())
                     if product.get_qtd() > 0 and product.get_qtd() - quantity2 >= 0:    
-                        st.button(label = f"Adicionar {product.get_name()}", key = 4030 * (i+99), on_click= st.session_state["Cart"].add_product, args = (product, quantity2))
+                        st.button(label = f"Adicionar {product.get_name()}", key = 4531 * (i+99), on_click= st.session_state["Cart"].add_product, args = (product, quantity2))
                     else:
                         st.markdown(f"## {product.get_name()} Sem Estoque!")
 
@@ -189,10 +192,11 @@ if "Login" in st.session_state:
 
             st.markdown("***")
 
-            col1, col2, col3 = st.columns(3,gap="large")
+            col1, col2, col3, col4 = st.columns(4,gap="large")
             col1.markdown("### Produto")
             col2.markdown("### Preço")
             col3.markdown("### Quantidade")
+            col4.markdown("### Remover")
             
             product_qtd = []
             product_names = []
@@ -217,11 +221,16 @@ if "Login" in st.session_state:
 
 
             with col3:
-
-                
+                            
                 for i in range(len(product_names)):
                     st.markdown(f"x{product_qtd[i]}")   
-
+            
+            with col4:
+                for i in range(len(product_names)):
+                    st.button("Remover", key=[i], on_click = st.session_state["Cart"].remove_cart)
+                
+            
+            
             st.markdown("***")
             valor_total = st.session_state["Cart"].get_total_price()
             

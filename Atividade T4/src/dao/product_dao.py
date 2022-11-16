@@ -49,6 +49,7 @@ class ProductDAO:
         return True
 
     def update_product(self, product):
+        ## Atualiza os dados do produto no carrinho
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
