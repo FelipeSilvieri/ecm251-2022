@@ -20,7 +20,7 @@ class CarrinhoController():
                     st.session_state["falta"] = ""
                     
                 else:
-                    st.session_state["falta"] = f"{product.get_name()} tem somente {product.get_qtd()} unidade(s) disponível(is) em estoque"
+                    st.session_state["falta"] = f"{product.get_name()} tem somente {product.get_qtd()} unidades disponíveis no estoque"
                 return
         self.get_cart().get_products().append([product,quantity])
 
@@ -41,8 +41,12 @@ class CarrinhoController():
         except:
             return False
         
-    def remove_cart(self,products):
-        for i in self.get_cart().get_products():
-            i[0].set_qtd(i[0].get_qtd() - 1)
-            ProductDAO.get_instance().update_product(i)
-        self.get_cart().set_products([])
+    def remove_cart(self):
+        try:
+            for item in self.get_cart().get_products():
+                item[0].set_qtd(item[0].get_qtd() - 1)
+                ProductDAO.get_instance().update_product(item[0])
+            self.get_cart().set_products([])
+            return True
+        except:
+            return False

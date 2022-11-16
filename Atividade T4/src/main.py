@@ -16,6 +16,7 @@ st.set_page_config(page_title="Silvieri Eletrônicos", page_icon="🖥️")
 st.markdown("<h1 style='text-align: center; color: grey;'>Bem Vindo a Loja Silvieri Eletrônicos 🖥️</h1>", unsafe_allow_html=True)
 
 if "Login" not in st.session_state:
+    
     ## session states ##
     
     st.session_state["Profile"] = "dados"
@@ -145,7 +146,8 @@ if "Login" in st.session_state:
                 with col4:
                     st.button(label= "Alterar", key = 2342355, on_click= uc.change_data, args = (uc(), email, password))
         with tab1:
-
+            ## Página Home (Produtos)
+            
             st.title("Página de Produtos")
             
             st.markdown("***")
@@ -185,8 +187,9 @@ if "Login" in st.session_state:
                     else:
                         st.markdown(f"## {product.get_name()} Sem Estoque!")
 
-        with tab2:
-
+        with tab2:      
+            ## Página Carrinho ##
+            
             st.title("Bem Vindo ao seu Carrinho!")
             st.markdown("Obs: estão listados abaixos os produtos no seu carrinho")
 
@@ -237,4 +240,3 @@ if "Login" in st.session_state:
             st.markdown(f"## Valor total: R${valor_total:.2f} ")
             st.button(label = "Finalizar Pedido", key = 9518, on_click= st.session_state["Cart"].clear_cart)
             st.text("Obs: Equivalente a Limpar Carrinho")
-        
